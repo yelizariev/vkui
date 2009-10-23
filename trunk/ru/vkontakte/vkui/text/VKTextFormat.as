@@ -7,7 +7,8 @@ package ru.vkontakte.vkui.text{
 	public class VKTextFormat extends TextFormat{
 		public function VKTextFormat(): void{
 			super();
-			font = "Verdana";
+			font = "Tahoma";
+			//font = "Verdana";
 			size = 11;
 		}
 	}
