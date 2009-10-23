@@ -84,8 +84,6 @@ package ru.vkontakte.vkui.button {
 				tf.textWidth + _pLeft + _pRight, //contentWidth
 				tf.textHeight + _pTop + _pBottom //contentHeight
 			);
-			trace("textHeight="+tf.textHeight);
-			trace("height="+tf.height);
 
 			tf.x = - (tf.width - tf.textWidth)/2.0 + stDrawer.leftBorder + _pLeft;
 			tf.y = - (tf.height - tf.textHeight)/2.0 + stDrawer.topBorder + _pTop;
