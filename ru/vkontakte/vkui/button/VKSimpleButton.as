@@ -7,21 +7,34 @@ package ru.vkontakte.vkui.button {
 	 */
 	public class VKSimpleButton extends VKButton{
 		public function VKSimpleButton(label: String): void{
-			init();
-			super(label);
-		}
-		private function init(): void{
-			_pTop = 3;
-			_pBottom = _pTop;
-			_pLeft = 8;
-			_pRight = _pLeft;
+			var f: VKTextFormat;
+			var buttonType: ButtonType = new ButtonType();
+			buttonType.minWidth();
+			var stDrawer: IVKStateDrawer = new VKSimpleButtonStateDrawer();
 
-			_upTextFormat = new VKTextFormat();
-			_upTextFormat.color = VKTextColor.WHITE;
-			_overTextFormat = new VKTextFormat();
-			_overTextFormat.color = VKTextColor.LIGHT_BLUE;
+			f = new VKTextFormat();
+			f.color = VKTextColor.WHITE;
+			var upButtonState: ButtonState = new ButtonState(
+				buttonType,
+				new VKSimpleButtonStateDrawer(), f,
+				3, // paddingTop
+				3, // paddingBottom
+				8, // paddingLeft
+				8 // paddingRight
+			);
 
-			_upStateDrawer = new VKSimpleButtonStateDrawer();
+			f = new VKTextFormat();
+			f.color = VKTextColor.LIGHT_BLUE;
+			var overButtonState: ButtonState = new ButtonState(
+				buttonType,
+				new VKSimpleButtonStateDrawer(), f,
+				3, // paddingTop
+				3, // paddingBottom
+				8, // paddingLeft
+				8 // paddingRight
+			);
+
+			super(label, upButtonState, overButtonState);
 		}
 	}
 }

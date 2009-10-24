@@ -11,6 +11,9 @@ package {
 			var btn: VKSimpleButton = new VKSimpleButton('Event');
 			btn.x = 15;
 			btn.y = 15;
+			btn.addEventListener(MouseEvent.CLICK, function(e: MouseEvent):void {
+				trace("btn clicked");
+			});
 			addChild(btn);
 
 			var btn1: VKSimpleButton = new VKSimpleButton('OK');
@@ -19,13 +22,20 @@ package {
 			addChild(btn1);
 
 			var btn2: VKSimpleButton = new VKSimpleButton('Изменить Пароль');
-			btn2.x = btn1.x;
+			btn2.x = btn.x;
 			btn2.y = btn1.y + btn1.height + 10;
 			addChild(btn2);
 
-			btn.addEventListener(MouseEvent.CLICK, function(e: MouseEvent):void {
-				trace("btn clicked");
-			});
+			var vkmenu: VKMenu = new VKMenu('Мои Друзья', 1);
+			vkmenu.x = btn.x;
+			vkmenu.y = btn2.y + btn2.height + 10;
+			addChild(vkmenu);
+
+			var vkmenu1: VKMenu = new VKMenu('Мои Фотографии');
+			vkmenu1.x = btn.x;
+			vkmenu1.y = vkmenu.y + vkmenu.height + 2;
+			addChild(vkmenu1);
+
 		}
 		private function drawRect(width: Number, height: Number): void {
 			graphics.clear();
