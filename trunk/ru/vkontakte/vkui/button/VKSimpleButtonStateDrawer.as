@@ -6,10 +6,11 @@ package ru.vkontakte.vkui.button {
 	 * @author ivann
 	 */
 	internal class VKSimpleButtonStateDrawer implements IVKStateDrawer {
-		public static const BG: uint = 0x36638E;
-		public static const CORNER: uint = 0x9AB1C6
 
 		public function get leftBorder(): Number{
+			return 0;
+		}
+		public function get rightBorder(): Number{
 			return 0;
 		}
 		public function get topBorder(): Number{
@@ -52,7 +53,7 @@ package ru.vkontakte.vkui.button {
 		}
 		private function ncc(width: Number, height: Number): Shape{
 			var ncc: Shape = new Shape();
-			ncc.graphics.beginFill(BG);
+			ncc.graphics.beginFill(VKSimpleButtonColor.BG);
 			ncc.graphics.lineStyle();
 			ncc.graphics.moveTo(0, 0);
 			ncc.graphics.lineTo(width , 0);
@@ -65,14 +66,14 @@ package ru.vkontakte.vkui.button {
 		private function nc1(width: Number): Shape{
 			var nc1: Shape = new Shape();
 
-			nc1.graphics.beginFill(CORNER);
-			nc1.graphics.lineStyle(1, CORNER);
+			nc1.graphics.beginFill(VKSimpleButtonColor.CORNER);
+			nc1.graphics.lineStyle(1, VKSimpleButtonColor.CORNER);
 			nc1.graphics.moveTo(1, 0);
 			nc1.graphics.lineTo(width-1, 0);
 			nc1.graphics.endFill();
 
-			nc1.graphics.beginFill(BG);
-			nc1.graphics.lineStyle(1, BG);
+			nc1.graphics.beginFill(VKSimpleButtonColor.BG);
+			nc1.graphics.lineStyle(1, VKSimpleButtonColor.BG);
 			nc1.graphics.moveTo(2, 0);
 			nc1.graphics.lineTo(width-2, 0);
 			nc1.graphics.endFill();
@@ -81,14 +82,14 @@ package ru.vkontakte.vkui.button {
 		}
 		private function nc2(width: Number): Shape{
 			var nc2: Shape = new Shape();
-			nc2.graphics.beginFill(CORNER);
-			nc2.graphics.lineStyle(1, CORNER);
+			nc2.graphics.beginFill(VKSimpleButtonColor.CORNER);
+			nc2.graphics.lineStyle(1, VKSimpleButtonColor.CORNER);
 			nc2.graphics.moveTo(0, 0);
 			nc2.graphics.lineTo(width, 0);
 			nc2.graphics.endFill();
 
-			nc2.graphics.beginFill(BG);
-			nc2.graphics.lineStyle(1, BG);
+			nc2.graphics.beginFill(VKSimpleButtonColor.BG);
+			nc2.graphics.lineStyle(1, VKSimpleButtonColor.BG);
 			nc2.graphics.moveTo(1, 0);
 			nc2.graphics.lineTo(width-1, 0);
 			nc2.graphics.endFill();

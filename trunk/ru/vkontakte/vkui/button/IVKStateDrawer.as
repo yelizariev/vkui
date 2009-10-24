@@ -6,6 +6,7 @@ package ru.vkontakte.vkui.button {
 	internal interface  IVKStateDrawer{
 		function draw(contentWidth: Number, contentHeight: Number): Sprite;
 		function get leftBorder(): Number;
+		function get rightBorder(): Number;
 		function get topBorder(): Number;
 	}
 }
