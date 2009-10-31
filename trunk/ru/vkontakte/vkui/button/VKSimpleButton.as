@@ -1,40 +1,22 @@
 package ru.vkontakte.vkui.button {
-	import ru.vkontakte.vkui.text.VKTextColor;
-	import ru.vkontakte.vkui.text.VKTextFormat;
-
+	import flash.display.SimpleButton;
+	
 	/**
 	 * @author ivann
 	 */
-	public class VKSimpleButton extends VKButton{
+	public class VKSimpleButton extends SimpleButton{
+		private var _upState: SimpleButtonStateUp;
+		private var _overState: SimpleButtonStateOver;
+
 		public function VKSimpleButton(label: String): void{
-			var f: VKTextFormat;
-			var buttonType: ButtonType = new ButtonType();
-			buttonType.minWidth();
-			var stDrawer: IVKStateDrawer = new VKSimpleButtonStateDrawer();
-
-			f = new VKTextFormat();
-			f.color = VKTextColor.WHITE;
-			var upButtonState: ButtonState = new ButtonState(
-				buttonType,
-				new VKSimpleButtonStateDrawer(), f,
-				3, // paddingTop
-				3, // paddingBottom
-				8, // paddingLeft
-				8 // paddingRight
-			);
-
-			f = new VKTextFormat();
-			f.color = VKTextColor.LIGHT_BLUE;
-			var overButtonState: ButtonState = new ButtonState(
-				buttonType,
-				new VKSimpleButtonStateDrawer(), f,
-				3, // paddingTop
-				3, // paddingBottom
-				8, // paddingLeft
-				8 // paddingRight
-			);
-
-			super(label, upButtonState, overButtonState);
+			_upState = new SimpleButtonStateUp(label);
+			_overState = new SimpleButtonStateOver(label);
+			upState = _upState;
+			downState = hitTestState = overState = _overState;
+		}
+		public function set label(value: String): void {
+			_upState.label = value;
+			_overState.label = value;
 		}
 	}
 }

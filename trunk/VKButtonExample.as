@@ -16,25 +16,42 @@ package {
 			});
 			addChild(btn);
 
-			var btn1: VKSimpleButton = new VKSimpleButton('OK');
+			var btn1: VKSimpleButton = new VKSimpleButton('Изменить Пароль');
 			btn1.x = btn.x;
 			btn1.y = btn.y + btn.height + 10;
 			addChild(btn1);
 
-			var btn2: VKSimpleButton = new VKSimpleButton('Изменить Пароль');
-			btn2.x = btn.x;
-			btn2.y = btn1.y + btn1.height + 10;
-			addChild(btn2);
-
 			var vkmenu: VKMenu = new VKMenu('Мои Друзья', 1);
 			vkmenu.x = btn.x;
-			vkmenu.y = btn2.y + btn2.height + 10;
+			vkmenu.y = btn1.y + btn1.height + 10;
 			addChild(vkmenu);
 
 			var vkmenu1: VKMenu = new VKMenu('Мои Фотографии');
 			vkmenu1.x = btn.x;
 			vkmenu1.y = vkmenu.y + vkmenu.height + 2;
 			addChild(vkmenu1);
+
+			//VKTab
+			var vktab: VKTab = new VKTab('Друзья');
+			vktab.x = btn.x;
+			vktab.y = vkmenu1.y + vkmenu1.height + 10;
+			addChild(vktab);
+
+			var tabb: VKSimpleButton = new VKSimpleButton('selected = true');
+			tabb.x = vktab.x + vktab.width + 10;
+			tabb.y = vktab.y;
+			tabb.addEventListener(MouseEvent.CLICK, function(e: MouseEvent):void{
+				vktab.selected = true;
+			});
+			addChild(tabb);
+
+			var tabb1: VKSimpleButton = new VKSimpleButton('selected = false');
+			tabb1.x = tabb.x + tabb.width + 10;
+			tabb1.y = vktab.y;
+			tabb1.addEventListener(MouseEvent.CLICK, function(e: MouseEvent):void{
+				vktab.selected = false;
+			});
+			addChild(tabb1);
 
 		}
 		private function drawRect(width: Number, height: Number): void {
