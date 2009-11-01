@@ -9,7 +9,6 @@ package ru.vkontakte.vkui.text{
 
 		public function VKTextFieldFixedWidthNews(
 				tFormat: TextFormat,
-				autoSize: String,
 
 				width: Number,
 
@@ -25,7 +24,6 @@ package ru.vkontakte.vkui.text{
 			) {
 			super(
 				tFormat,
-				autoSize,
 
 				width,
 

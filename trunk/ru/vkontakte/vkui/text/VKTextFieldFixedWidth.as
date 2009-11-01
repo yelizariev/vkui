@@ -4,12 +4,11 @@ package ru.vkontakte.vkui.text{
 	/**
 	 * @author ivann
 	 */
-	internal class VKTextFieldFixedWidth extends FixTextField{
+	public class VKTextFieldFixedWidth extends FixTextField{
 		private var _addHeight: Number;
 
 		public function VKTextFieldFixedWidth(
 				tFormat: TextFormat,
-				autoSize: String,
 
 				width: Number,
 
@@ -34,7 +33,7 @@ package ru.vkontakte.vkui.text{
 			_contentWidth = Math.round(_contentWidth);
 
 			defaultTextFormat = tFormat;
-			this.autoSize = autoSize;
+			autoSize = 'center';
 			wordWrap = true;
 			super.text = '.'; //test text
 			_addHeight = paddingTop + paddingBottom;
