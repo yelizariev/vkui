@@ -6,11 +6,11 @@ package ru.vkontakte.vkui.button {
 	/**
 	 * @author ivann
 	 */
-	public class VKAvaMenu extends SimpleButton {
+	public class VKAvaMenuButton extends SimpleButton {
 		protected var _emptyState: AvaMenuStateEmpty;
 		protected var _overState: AvaMenuStateOver;
 
-		public function VKAvaMenu(label: String, width: Number = 200){
+		public function VKAvaMenuButton(label: String, width: Number = 200){
 			init(label, width);
 		}
 		public function set label (value: String): void{

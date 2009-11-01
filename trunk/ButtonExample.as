@@ -4,8 +4,8 @@ package {
 	import flash.events.*;
 	import ru.vkontakte.vkui.button.*;
 
-	public class VKButtonExample extends Sprite {
-		public function VKButtonExample() {
+	public class ButtonExample extends Sprite {
+		public function ButtonExample() {
 			drawRect(stage.stageWidth, stage.stageHeight);
 
 			var btn: VKSimpleButton = new VKSimpleButton('Event');
@@ -21,18 +21,18 @@ package {
 			btn1.y = btn.y + btn.height + 10;
 			addChild(btn1);
 
-			var vkmenu: VKMenu = new VKMenu('Мои Друзья', 1);
+			var vkmenu: VKMenuButton = new VKMenuButton('Мои Друзья', 1);
 			vkmenu.x = btn.x;
 			vkmenu.y = btn1.y + btn1.height + 10;
 			addChild(vkmenu);
 
-			var vkmenu1: VKMenu = new VKMenu('Мои Фотографии');
+			var vkmenu1: VKMenuButton = new VKMenuButton('Мои Фотографии');
 			vkmenu1.x = btn.x;
 			vkmenu1.y = vkmenu.y + vkmenu.height + 2;
 			addChild(vkmenu1);
 
-			//VKTab
-			var vktab: VKTab = new VKTab('Друзья');
+			//VKTabButton
+			var vktab: VKTabButton = new VKTabButton('Друзья');
 			vktab.x = btn.x;
 			vktab.y = vkmenu1.y + vkmenu1.height + 10;
 			addChild(vktab);
@@ -53,18 +53,18 @@ package {
 			});
 			addChild(tabb1);
 
-			//VKAvaMenu
-			var vkavamenu: VKAvaMenu = new VKAvaMenu('Фотографии с Павлом (7)');
+			//VKAvaMenuButton
+			var vkavamenu: VKAvaMenuButton = new VKAvaMenuButton('Фотографии с Павлом (7)');
 			vkavamenu.x = btn.x;
 			vkavamenu.y = vktab.y + vktab.height + 10;
 			addChild(vkavamenu);
 
-			var vkavamenu1: VKAvaMenu = new VKAvaMenu('Видеозаписи с Павлом (1)');
+			var vkavamenu1: VKAvaMenuButton = new VKAvaMenuButton('Видеозаписи с Павлом (1)');
 			vkavamenu1.x = btn.x;
 			vkavamenu1.y = vkavamenu.y + vkavamenu.height;
 			addChild(vkavamenu1);
 
-			var vkavamenu2: VKAvaMenu = new VKAvaMenu('Отправить Павлу сообщение');
+			var vkavamenu2: VKAvaMenuButton = new VKAvaMenuButton('Отправить Павлу сообщение');
 			vkavamenu2.x = btn.x;
 			vkavamenu2.y = vkavamenu1.y + vkavamenu1.height;
 			addChild(vkavamenu2);
