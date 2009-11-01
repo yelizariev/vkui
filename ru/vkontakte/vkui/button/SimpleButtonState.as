@@ -72,11 +72,11 @@ package ru.vkontakte.vkui.button {
 		}
 		private function ncc(curY: Number, width: Number, height: Number): void{
 			_graphics.beginFill(ButtonColor.SB_BG);
-			_graphics.lineStyle();
+			_graphics.lineStyle(1.0, ButtonColor.SB_BG);
 			_graphics.moveTo(0.0, curY);
-			_graphics.lineTo(width, curY);
-			_graphics.lineTo(width, curY + height);
-			_graphics.lineTo(0.0, curY + height);
+			_graphics.lineTo(width-1, curY);
+			_graphics.lineTo(width-1, curY + height-1);
+			_graphics.lineTo(0.0, curY + height-1);
 			_graphics.lineTo(0.0, curY);
 			_graphics.endFill();
 		}

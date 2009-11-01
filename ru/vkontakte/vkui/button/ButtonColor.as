@@ -23,5 +23,11 @@ package ru.vkontakte.vkui.button {
 		public static const CB_INNER_BOTTOM_BORDER: uint = 0xDFDFDF;
 		public static const CB_BG_UP: uint = 0xEAEAEA;
 		public static const CB_BG_OVER: uint = 0xF7F7F7;
+		public static const TF_BOTTOM_SHADOW: uint = 0xFFFFFF;// TF = Top Filter
+		public static const TF_OUT_TOP_BORDER: uint = 0x395676;
+		public static const TF_OUT_SIDE_BORDER: uint = 0x3B6798;;
+		public static const TF_OUT_BOTTOM_BORDER: uint = 0x4A73A0;
+		public static const TF_INNER_BORDER: uint = 0x5C82AB;
+		public static const TF_BG: uint = 0x6D8FB3;
 	}
 }

@@ -11,30 +11,27 @@ package ru.vkontakte.vkui.button {
 	/**
 	 * @author ivann
 	 */
-	internal class BigButtonState extends ModernButtonStateShadow{
+	internal class SideFilterButtonState extends BorderRectDrawer{
 		private var _tField: VKTextFieldFixedWidth;
 		private var _curContentHeight: Number;
 
-		public function BigButtonState(label: String, width: Number, bgColor: uint) {
-			super(bgColor);
+		public function SideFilterButtonState(label: String, width: Number, bgColor: uint, borderColor: uint, alpha: Number, textColor: Object) {
+			super(bgColor, borderColor, alpha);
 			var tFormat: TextFormat = new VKTextFormat();
-			tFormat.color = VKTextColor.WHITE;
-			tFormat.align = TextFormatAlign.CENTER;
+			tFormat.color = textColor;
+			tFormat.align = TextFormatAlign.LEFT;
 			_tField = new VKTextFieldFixedWidth(
 				tFormat,
 				width, 
-				2.0, //borderTop
-				3.0, //borderBottom
-				2.0, //borderLeft
-				2.0, //borderRight
-				5.0, //paddingTop
-				5.0, //paddingBottom
-				5.0, //paddingLeft
+				1.0, //borderTop
+				1.0, //borderBottom
+				1.0, //borderLeft
+				1.0, //borderRight
+				4.0, //paddingTop
+				4.0, //paddingBottom
+				10.0, //paddingLeft
 				5.0  //paddingRight
-			)
-			var sh: Shape = new Shape();
-			_graphics = sh.graphics;
-			addChild(sh);
+			);
 			_tField.text = label;
 			_curContentHeight = _tField.contentHeight;
 			addChild(_tField);
