@@ -24,8 +24,8 @@ package ru.vkontakte.vkui.text{
 		}
 
 		protected function setXY(paddingLeft: Number, borderLeft: Number, paddingTop: Number, borderTop: Number): void{
-			x = paddingLeft + borderLeft;
-			y = paddingTop + borderTop;
+			x = paddingLeft + borderLeft - 0.1;
+			y = paddingTop + borderTop - 0.1;
 		}
 	}
 }

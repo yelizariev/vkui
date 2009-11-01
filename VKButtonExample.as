@@ -53,6 +53,38 @@ package {
 			});
 			addChild(tabb1);
 
+			//VKAvaMenu
+			var vkavamenu: VKAvaMenu = new VKAvaMenu('Фотографии с Павлом (7)');
+			vkavamenu.x = btn.x;
+			vkavamenu.y = vktab.y + vktab.height + 10;
+			addChild(vkavamenu);
+
+			var vkavamenu1: VKAvaMenu = new VKAvaMenu('Видеозаписи с Павлом (1)');
+			vkavamenu1.x = btn.x;
+			vkavamenu1.y = vkavamenu.y + vkavamenu.height;
+			addChild(vkavamenu1);
+
+			var vkavamenu2: VKAvaMenu = new VKAvaMenu('Отправить Павлу сообщение');
+			vkavamenu2.x = btn.x;
+			vkavamenu2.y = vkavamenu1.y + vkavamenu1.height;
+			addChild(vkavamenu2);
+
+			//VKBigButton
+			var bb: VKBigButton = new VKBigButton('Создать список');
+			bb.x = btn.x;
+			bb.y = vkavamenu2.y +vkavamenu2.height + 10;
+			addChild(bb);
+
+			//VKConfirmButton
+			var ok: VKConfirmButton = new VKConfirmButton('Разрешить');
+			ok.x = btn.x;
+			ok.y = bb.y + bb.height + 10;
+			addChild(ok);
+
+			var cancel: VKCancelButton = new VKCancelButton('Отмена');
+			cancel.x = ok.x + ok.width + 10
+			cancel.y = ok.y;
+			addChild(cancel);
 		}
 		private function drawRect(width: Number, height: Number): void {
 			graphics.clear();

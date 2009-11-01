@@ -10,6 +10,7 @@ package ru.vkontakte.vkui.text{
 			font = "Tahoma";
 			//font = "Verdana";
 			size = 11;
+			//kerning = true;
 		}
 	}
 }
