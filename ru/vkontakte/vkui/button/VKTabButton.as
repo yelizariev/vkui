@@ -4,13 +4,13 @@ package ru.vkontakte.vkui.button {
 	/**
 	 * @author ivann
 	 */
-	public class VKTab extends SimpleButton{
+	public class VKTabButton extends SimpleButton{
 		private var _emptyState: TabStateEmpty;
 		private var _fullState: TabStateFull;
 		private var _overState: TabStateOver;
 		private var _isSelected: Boolean;
 
-		public function VKTab(label: String, isSelected: Boolean = false): void{
+		public function VKTabButton(label: String, isSelected: Boolean = false): void{
 			_emptyState = new TabStateEmpty(label);
 			_fullState = new TabStateFull(label);
 			_overState = new TabStateOver(label);

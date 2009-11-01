@@ -6,14 +6,14 @@ package ru.vkontakte.vkui.button {
 	/**
 	 * @author ivann
 	 */
-	public class VKMenu extends SimpleButton {
+	public class VKMenuButton extends SimpleButton {
 		private var _label: String;
 		private var _countNews: int;
 
 		protected var _emptyState: MenuStateEmpty;
 		protected var _overState: MenuStateOver;
 
-		public function VKMenu(label: String,  countNews: int = 0, width: Number = 118){
+		public function VKMenuButton(label: String,  countNews: int = 0, width: Number = 118){
 			_label = label;
 			_countNews = countNews;
 			init(width);
