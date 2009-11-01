@@ -85,6 +85,50 @@ package {
 			cancel.x = ok.x + ok.width + 10
 			cancel.y = ok.y;
 			addChild(cancel);
+
+			//VKTopFilterButton
+			var vktf: VKTopFilterButton = new VKTopFilterButton('Друзья');
+			vktf.x = btn.x;
+			vktf.y = ok.y + ok.height + 5;
+			addChild(vktf);
+
+			var tfb: VKSimpleButton = new VKSimpleButton('selected = true');
+			tfb.x = vktab.x + vktab.width + 10;
+			tfb.y = vktf.y;
+			tfb.addEventListener(MouseEvent.CLICK, function(e: MouseEvent):void{
+				vktf.selected = true;
+			});
+			addChild(tfb);
+
+			var tfb1: VKSimpleButton = new VKSimpleButton('selected = false');
+			tfb1.x = tfb.x + tfb.width + 10;
+			tfb1.y = vktf.y;
+			tfb1.addEventListener(MouseEvent.CLICK, function(e: MouseEvent):void{
+				vktf.selected = false;
+			});
+			addChild(tfb1);
+
+			//VKSideFilterButton
+			var vksf: VKSideFilterButton = new VKSideFilterButton('Все друзья');
+			vksf.x = btn.x;
+			vksf.y = tfb.y + tfb.height + 5;
+			addChild(vksf);
+
+			var sfb: VKSimpleButton = new VKSimpleButton('selected = true');
+			sfb.x = vksf.x + vksf.width + 10;
+			sfb.y = vksf.y;
+			sfb.addEventListener(MouseEvent.CLICK, function(e: MouseEvent):void{
+				vksf.selected = true;
+			});
+			addChild(sfb);
+
+			var sfb1: VKSimpleButton = new VKSimpleButton('selected = false');
+			sfb1.x = sfb.x + sfb.width + 10;
+			sfb1.y = vksf.y;
+			sfb1.addEventListener(MouseEvent.CLICK, function(e: MouseEvent):void{
+				vksf.selected = false;
+			});
+			addChild(sfb1);
 		}
 		private function drawRect(width: Number, height: Number): void {
 			graphics.clear();
