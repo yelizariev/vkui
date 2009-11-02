@@ -12,8 +12,7 @@ package {
 			btn.x = 15;
 			btn.y = 15;
 			btn.addEventListener(MouseEvent.CLICK, function(e: MouseEvent):void {
-				trace("btn clicked");
-			});
+				trace("btn clicked"); });
 			addChild(btn);
 
 			var btn1: VKSimpleButton = new VKSimpleButton('Изменить Пароль');
@@ -129,6 +128,27 @@ package {
 				vksf.selected = false;
 			});
 			addChild(sfb1);
+
+			//PageNumButtons
+			var pageTop1: VKTopPageNumButton = new VKTopPageNumButton('1', true);
+			pageTop1.x = 150;
+			pageTop1.y = 15;
+			addChild(pageTop1);
+
+			var pageTop2: VKTopPageNumButton = new VKTopPageNumButton('2');
+			pageTop2.x = pageTop1.x + pageTop1.width;
+			pageTop2.y = pageTop1.y;
+			addChild(pageTop2);
+
+			var pageBottom1: VKBottomPageNumButton = new VKBottomPageNumButton('1', true);
+			pageBottom1.x = pageTop1.x;
+			pageBottom1.y = pageTop1.y + pageTop1.height + 5;
+			addChild(pageBottom1);
+
+			var pageBottom2: VKBottomPageNumButton = new VKBottomPageNumButton('2');
+			pageBottom2.x = pageTop2.x;
+			pageBottom2.y = pageTop2.y + pageTop2.height + 5;
+			addChild(pageBottom2);
 		}
 		private function drawRect(width: Number, height: Number): void {
 			graphics.clear();

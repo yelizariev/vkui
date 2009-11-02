@@ -53,7 +53,10 @@ package ru.vkontakte.vkui.button {
 			mouseChildren = false;
 		}
 		public function set selected(value: Boolean): void{
-			bgSelected.visible = value;
+			if (value)
+				bgSelected.alpha = 1.0;
+			else
+				bgSelected.alpha = 0.0;
 			tFieldSelected.visible = value;
 			tFieldNotSelected.visible = !value;
 		}

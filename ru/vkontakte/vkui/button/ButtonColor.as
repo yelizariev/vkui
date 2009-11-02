@@ -29,5 +29,6 @@ package ru.vkontakte.vkui.button {
 		public static const TF_OUT_BOTTOM_BORDER: uint = 0x4A73A0;
 		public static const TF_INNER_BORDER: uint = 0x5C82AB;
 		public static const TF_BG: uint = 0x6D8FB3;
+		public static const PAGE_NUM_BG: uint = 0x45668E;
 	}
 }
