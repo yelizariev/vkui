@@ -1,5 +1,6 @@
 package ru.vkontakte.vkui.text{
 	import flash.text.TextFormat;
+	import flash.text.TextFieldAutoSize;
 
 	/**
 	 * @author ivann
@@ -33,9 +34,8 @@ package ru.vkontakte.vkui.text{
 			_contentWidth = Math.round(_contentWidth);
 
 			defaultTextFormat = tFormat;
-			autoSize = 'center';
+			autoSize = TextFieldAutoSize.CENTER;
 			wordWrap = true;
-			super.text = '.'; //test text
 			_addHeight = paddingTop + paddingBottom;
 			setXY(paddingLeft, borderLeft, paddingTop, borderTop);
 		}
