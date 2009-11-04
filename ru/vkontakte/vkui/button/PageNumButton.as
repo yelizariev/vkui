@@ -4,21 +4,23 @@ package ru.vkontakte.vkui.button {
 	/**
 	 * @author ivann
 	 */
-	internal class PageNumButton extends SimpleButton{
+	public class PageNumButton extends SimpleButton{
 		private var _emptyState: PageNumButtonState;
 		private var _curState: PageNumButtonStateCurrent;
 		private var _overState: PageNumButtonState;;
 		private var _isSelected: Boolean;
+		private var _num: int;
 
 		public function PageNumButton(label: String, isSelected: Boolean, isTop: Boolean): void{
 			_emptyState = new PageNumButtonState(label, isTop, false);
 			_curState = new PageNumButtonStateCurrent(label, isTop);
 			_overState = new PageNumButtonState(label, isTop, true);
-			_isSelected = isSelected;
-			updateStates();
+			this.selected = isSelected;
 		}
 		public function set selected(value: Boolean): void{
 			_isSelected = value;
+			useHandCursor = !value;
+			mouseEnabled = !value;
 			updateStates();
 		}
 		public function get selected(): Boolean{
@@ -28,6 +30,13 @@ package ru.vkontakte.vkui.button {
 			_emptyState.label = value;
 			_curState.label = value;
 			_overState.label = value;
+		}
+		public function set num(value: int): void{
+			this.label = String(value);
+			_num = value;
+		}
+		public function get num(): int{
+			return _num;
 		}
 		public override function get width(): Number{
 			if (_isSelected)
