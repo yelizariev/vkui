@@ -30,6 +30,8 @@ package ru.vkontakte.vkui.popup{
 			var contentWidth: Number = content.width + paddingLeft + paddingRight;
 			var contentHeight: Number = content.height + paddingTop + paddingBottom;
 			var borderSize: Number = 10.0;
+			var buttonDeltaX: Number = 10.0;
+			var buttonDeltaY: Number = 7.0;
 			var tFormat: TextFormat = new VKTextFormat();
 			tFormat.color = 0xFFFFFF;
 			tFormat.size = 13;
@@ -50,7 +52,7 @@ package ru.vkontakte.vkui.popup{
 			_tranparentBG = new Shape();
 			var titleBG: Shape = drawTitleBG(tField.contentWidth, tField.contentHeight);
 			var contentBG: Shape = drawContentBG(contentWidth, contentHeight);
-			var buttonsBG: Shape = drawButtonsBG(contentWidth, 40);
+			var buttonsBG: Shape = drawButtonsBG(contentWidth, 2*buttonDeltaY + buttons[0].height);
 			var borderRect: Shape = drawRect(
 				2*borderSize + contentWidth,
 				2*borderSize + titleBG.height + contentBG.height + buttonsBG.height, 
@@ -63,14 +65,26 @@ package ru.vkontakte.vkui.popup{
 			tField.y += titleBG.y;
 			contentBG.x = borderSize;
 			contentBG.y = titleBG.y + titleBG.height;
+			content.x = contentBG.x + paddingLeft;
+			content.y = contentBG.y + paddingTop;
 			buttonsBG.x = borderSize;
 			buttonsBG.y = contentBG.y + contentBG.height;
+			var buttonY: Number = buttonsBG.y + 1 + buttonDeltaY;//1 — верхняя граница
+			var buttonX: Number = buttonsBG.x + buttonsBG.width - 1;
 			_popup = new Sprite();
 			_popup.addChild(borderRect);
 			_popup.addChild(titleBG);
 			_popup.addChild(tField);
 			_popup.addChild(contentBG);
+			_popup.addChild(content);
 			_popup.addChild(buttonsBG);
+			for each (var btn: DisplayObject in buttons){
+				buttonX -= btn.width;
+				buttonX -= buttonDeltaX;
+				btn.x = buttonX;
+				btn.y = buttonY;
+				_popup.addChild(btn);
+			}
 			addChild(_tranparentBG);
 			addChild(_popup);
 		}
