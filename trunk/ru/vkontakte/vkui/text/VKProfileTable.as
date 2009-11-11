@@ -50,8 +50,6 @@ package ru.vkontakte.vkui.text{
 			addChild(data);
 
 			_curY += Math.round(label.height) + DELTA_Y;
-			trace('label.height='+label.height);
-			trace('label.width='+label.width);
 
 			return data;
 		}
