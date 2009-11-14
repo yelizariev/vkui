@@ -10,10 +10,11 @@ package ru.vkontakte.vkui.bar {
 	public class VKMenuBar extends Sprite {
 		private var _width: Number;
 		private var _curY: Number;
+		private static const DELTA_Y: Number = 1.0;
 
 		public function VKMenuBar(width: Number = 118){
 			_width = width;
-			_curY = 0.0;
+			_curY = -DELTA_Y; //чтобы первое меню было без отступа
 		}
 		public function addMenu(label: String, onClick: Function): VKMenuButton{
 			var m: VKMenuButton = new VKMenuButton(label, 0, _width);
@@ -21,7 +22,7 @@ package ru.vkontakte.vkui.bar {
 			var func: Function = function(e: MouseEvent): void{ onClick() };
 			m.addEventListener(MouseEvent.CLICK, func);
 			addChild(m);
-			_curY += m.height + 1.0;//1.0 — расстояние между элементами
+			_curY += m.height + DELTA_Y;
 			return m;
 		}
 		public function addLine(): void{
