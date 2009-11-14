@@ -2,6 +2,8 @@ package ru.vkontakte.vkui.button {
 	import flash.display.Sprite;
 	import flash.display.Shape;
 	import flash.display.Graphics;
+	import flash.display.CapsStyle;
+	import flash.display.LineScaleMode;
 	import flash.text.TextFormat;
 	import flash.text.TextFieldAutoSize;
 	import ru.vkontakte.vkui.text.VKTextFieldFixedWidthNews;
@@ -63,11 +65,9 @@ package ru.vkontakte.vkui.button {
 		private function draw(): void {
 			var w: Number = _tField.contentWidth;
 			var h: Number = _tField.contentHeight;
-			_graphics.beginFill(ButtonColor.MENU_TOP_BORDER);
+			_graphics.lineStyle(1, ButtonColor.MENU_TOP_BORDER, _alpha, true, LineScaleMode.NONE, CapsStyle.NONE);
 			_graphics.moveTo(0, 0);
-			_graphics.lineStyle(1, ButtonColor.MENU_TOP_BORDER, _alpha);
-			_graphics.lineTo(w, 0);
-			_graphics.endFill();
+			_graphics.lineTo(w-1, 0);
 
 			var curY: Number = 1.0;
 			_graphics.beginFill(ButtonColor.OVER, _alpha);
