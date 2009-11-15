@@ -14,7 +14,7 @@ package ru.vkontakte.vkui.bar {
 
 		public function VKMenuBar(width: Number = 118){
 			_width = width;
-			_curY = -DELTA_Y; //чтобы первое меню было без отступа
+			_curY = 0.0; 
 		}
 		public function addMenu(label: String, onClick: Function): VKMenuButton{
 			var m: VKMenuButton = new VKMenuButton(label, 0, _width);
