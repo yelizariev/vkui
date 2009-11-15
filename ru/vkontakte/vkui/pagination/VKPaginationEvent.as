@@ -9,8 +9,8 @@ package ru.vkontakte.vkui.pagination {
 
 		private var _newPage: int;
 
-		public function VKPaginationEvent(newPageNum: int, bubbles:Boolean = false, cancelable:Boolean = false){
-			super(PAGE_CHANGED, bubbles, cancelable);
+		public function VKPaginationEvent(newPageNum: int){
+			super( PAGE_CHANGED);
 			_newPage = newPageNum;
 		}
 		public function get pageNum(): int{
