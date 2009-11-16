@@ -4,10 +4,22 @@ package {
 	import flash.events.*;
 	import ru.vkontakte.vkui.button.*;
 	import ru.vkontakte.vkui.bar.*;
+	import ru.vkontakte.vkui.pagination.VKPaginationEvent;
 
 	public class BarExample extends Sprite {
 		public function BarExample() {
 			drawRect(stage.stageWidth, stage.stageHeight);
+			var vkPTBar: VKPaginationTopBar = new VKPaginationTopBar('Найдено 52 вопроса', 400);
+			vkPTBar.addLink('Новый вопрос', function (): void{trace('new question');});
+			vkPTBar.x = 10;
+			vkPTBar.y = 3;
+			vkPTBar.pagination.addEventListener(VKPaginationEvent.PAGE_CHANGED, function(e:VKPaginationEvent): void{
+					trace('pageNum = '+e.pageNum);
+				}
+			) //also see PaginationExample.as
+			addChild(vkPTBar);
+
+
 			var vkmenu: VKMenuBar = new VKMenuBar();
 			vkmenu.addMenu('Моя Страница', function ():void{trace('Моя Страница')});
 			vkmenu.addMenu('Мои Друзья', function ():void{trace('Мои Друзья')});
@@ -16,7 +28,7 @@ package {
 			vkmenu.addLine();
 			vkmenu.addMenu('Приложения', function ():void{trace('Приложения')});
 			vkmenu.x = 30;
-			vkmenu.y = 30;
+			vkmenu.y = 50;
 			addChild(vkmenu);
 
 			var vkAvaMenu: VKAvaMenuBar = new VKAvaMenuBar();
@@ -26,6 +38,11 @@ package {
 			vkAvaMenu.x = vkmenu.x + vkmenu.width + 30;
 			vkAvaMenu.y = vkmenu.y;
 			addChild(vkAvaMenu);
+
+			var vkPBBar: VKPaginationBottomBar = new VKPaginationBottomBar(400);
+			vkPBBar.x = 10;
+			vkPBBar.y = 300;
+			addChild(vkPBBar);
 		}
 		private function drawRect(width: Number, height: Number): void {
 			graphics.clear();
