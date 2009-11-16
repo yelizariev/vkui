@@ -16,7 +16,7 @@ package ru.vkontakte.vkui.bar {
 		public function PaginationBar(width: Number, paddingY: Number, isTop: Boolean, lastIndex: int, countNearPages: uint, firstIndex: int): void{
 			_width = width;
 			_pagination = new VKPagination(isTop, lastIndex, countNearPages, firstIndex);
-			drawRect(_pagination.height + 1 + paddingY);
+			drawRect(_pagination.height + 1 + paddingY);//1 — высота линии
 			addChild(_pagination);
 			_pagination.x = _width - PADDING_LEFT;
 		}

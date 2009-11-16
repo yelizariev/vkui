@@ -8,13 +8,15 @@ package {
 	public class PaginationExample extends Sprite {
 		public function PaginationExample() {
 			drawRect(stage.stageWidth, stage.stageHeight);
-			var pagination: VKPagination = new VKPagination(true, 99);
+			var pagination: VKPagination = new VKPagination(true, 999);
 			pagination.addEventListener(VKPaginationEvent.PAGE_CHANGED, function(e:VKPaginationEvent): void{
 					trace('pageNum = '+e.pageNum);
 				}
 			)
 			pagination.x = 200;
 			pagination.y = 20;
+			//pagination.lastIndex = 99;
+			pagination.curIndex = 2;
 			addChild(pagination);
 		}
 		private function drawRect(width: Number, height: Number): void {
