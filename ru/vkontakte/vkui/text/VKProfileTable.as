@@ -14,6 +14,7 @@ package ru.vkontakte.vkui.text{
 		private var _dataWidth: Number;
 		private var _curY: Number;
 		private const DELTA_Y: Number = -3.0;
+		private var _list: Array = [];
 
 		public function VKProfileTable(labelWidth: Number = 120, dataWidth: Number = 260){
 			super();
@@ -29,7 +30,10 @@ package ru.vkontakte.vkui.text{
 
 			//mouseChildren=false;
 		}
-		public function addRow(labelString: String, dataString: String): TextField{
+		public function getTextFieldAt(i: uint): TextField{
+			return _list[i];
+		}
+		public function addRow(labelString: String, dataString: String = ''): TextField{
 			var label: TextField = new TextField();
 			label.width = _labelWidth;
 			label.defaultTextFormat = _labelTextFormat;
@@ -50,6 +54,8 @@ package ru.vkontakte.vkui.text{
 			addChild(data);
 
 			_curY += Math.round(label.height) + DELTA_Y;
+
+			_list.push(data);
 
 			return data;
 		}

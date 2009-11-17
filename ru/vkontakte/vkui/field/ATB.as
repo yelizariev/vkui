@@ -1,4 +1,10 @@
 package ru.vkontakte.vkui.field {
+	import flash.display.Sprite;
+	import flash.display.Shape;
+	import flash.display.DisplayObject;
+	import flash.display.Graphics;
+	import ru.vkontakte.vkui.bar.VKMenuBar;
+	import ru.vkontakte.vkui.text.VKProfileTable;
 
 	/**
 	 * @author ivann
@@ -7,8 +13,12 @@ package ru.vkontakte.vkui.field {
 	 */
 	public class ATB extends Sprite{
 		protected static const AVA_WIDTH: Number = 100;
-		private var _content: Sprite;// контейнер, не включающий паддинги
+		protected static const BORDER: Number = 1.0;
+		protected var _avaHeight: Number;
+		protected var _content: Sprite;// контейнер, не включающий паддинги
 		private var _bg: Graphics;
+		private var _bgWidth: Number;
+		protected var _bgHeight: Number;
 
 		private var _ava: DisplayObject;
 		private var _table: VKProfileTable;
@@ -39,6 +49,7 @@ package ru.vkontakte.vkui.field {
 			_paddingRight = paddingRight;
 			_bgColor = bgColor;
 			_borderColor = borderColor;
+			_bgWidth = width;
 
 			
 			var bgShape: Shape = new Shape();
@@ -46,29 +57,32 @@ package ru.vkontakte.vkui.field {
 			addChild(bgShape);
 
 			_content = new Sprite();
-			_content.x = _paddingLeft;
-			_content.y = _paddingTop;
+			_content.x = BORDER + _paddingLeft;
+			_content.y = BORDER + _paddingTop;
 			addChild(_content);
 
-			_table = new VKProfileTable(tableLabelWidth, 
+			var contentWidth: Number = 
 				width 
+				- BORDER
 				- paddingLeft 
+				- paddingRight 
+				- BORDER;
+			_table = new VKProfileTable(tableLabelWidth, 
+				contentWidth 
 				- AVA_WIDTH 
 				- deltaAvaAndTable
-				- labelWidth
+				- tableLabelWidth
 				- buttonWidth
-				- paddingRight 
 			);
 			_table.x = AVA_WIDTH + deltaAvaAndTable;
 			_content.addChild(_table);
 
-			_buttons = VKMenuBar(buttonWidth);
-			_buttons.x = width - paddingRight - buttonWidth;
+			_buttons = new VKMenuBar(buttonWidth);
+			_buttons.x = contentWidth - buttonWidth;
 			_content.addChild(_buttons);
-
 		}
-		protected function set ava(value: DisplayObject): void{
-			if (_ava)
+		public function set ava(value: DisplayObject): void{
+			if(_ava)
 				_content.removeChild(_ava);
 			_ava = value;
 			_ava.x = 0;
@@ -76,16 +90,24 @@ package ru.vkontakte.vkui.field {
 			_content.addChild(_ava);
 		}
 		public function updateBG(): void{
-			var w: Number = _paddingLeft + _content.width + _paddingRight;
-			var h: Number = _paddingTop + _content.height + _paddingBottom;
+			var h: Number = _content.height;
+			if (_ava){
+				if (_ava.mask){
+					h = Math.max(_ava.mask.height, _table.height, _buttons.height)
+				}
+			}
+			h += BORDER + _paddingTop + _paddingBottom + BORDER;
+			if (h == _bgHeight)
+				return;
+			_bgHeight = h;
 			_bg.clear();
 			_bg.beginFill(_bgColor);
 			_bg.lineStyle(1.0, _borderColor);
 			_bg.moveTo(0, 0);
-			_bg.lineTo(width-1, 0);
-			_bg.lineTo(width-1, height-1);
-			_bg.lineTo(0.0, height-1);
-			_bg.lineTo(0.0, 0);
+			_bg.lineTo(_bgWidth-1, 0);
+			_bg.lineTo(_bgWidth-1, h-1);
+			_bg.lineTo(0, h-1);
+			_bg.lineTo(0, 0);
 			_bg.endFill();
 		}
 		public function get table(): VKProfileTable{

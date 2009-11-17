@@ -6,6 +6,7 @@ package ru.vkontakte.vkui.text{
 	 */
 	public class VKCSS {
 		public static const summaryBar: StyleSheet = new StyleSheet;
+		public static const main: StyleSheet = new StyleSheet;
 
 		//static initializer
 		{
@@ -14,6 +15,11 @@ package ru.vkontakte.vkui.text{
 			summaryBar.setStyle('a', a);
 			summaryBar.setStyle('a:hover', a_hover);
 			summaryBar.setStyle('.divider', dotDivider);
+
+			main.setStyle('body', body);
+			main.setStyle('.bold', dotBold);
+			main.setStyle('a', a);
+			main.setStyle('a:hover', a_hover);
 		}
 
 		//private
