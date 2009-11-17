@@ -1,12 +1,15 @@
 package ru.vkontakte.vkui.field {
+	import flash.display.DisplayObject;
+	import flash.display.Shape;
 
 	/**
 	 * @author ivann
 	 */
 	public class ATBMask extends ATB{
 		private var _avaMask: Shape;
+		private var _height: Number;
 
-		public function ATB (
+		public function ATBMask (
 			width: Number, 
 			paddingTop: Number,
 			paddingBottom: Number,
@@ -19,6 +22,7 @@ package ru.vkontakte.vkui.field {
 			buttonWidth: Number,
 			avaHeight: Number
 		){
+			_height = BORDER + paddingTop + avaHeight + paddingBottom + BORDER;
 			super(
 				width,
 				paddingTop,
@@ -34,13 +38,16 @@ package ru.vkontakte.vkui.field {
 			_avaMask = new Shape();
 			_avaMask.graphics.beginFill(0);
 			_avaMask.graphics.lineStyle(1, 0);
-			_avaMask.graphics.drawRect(AVA_WIDTH, avaHeight);
+			_avaMask.graphics.drawRect(0, 0, AVA_WIDTH, avaHeight);
 			_avaMask.graphics.endFill();
 		}
-		override protected function set ava(value: DisplayObject): void{
-			addChild(_avaMask);
-			_ava.mask = _avaMask;
-			super(_ava);
+		override public function set ava(value: DisplayObject): void{
+			_content.addChild(_avaMask);
+			value.mask = _avaMask;
+			super.ava = value;
+		}
+		override public function get height(): Number{
+			return _height;;
 		}
 	}
 }
