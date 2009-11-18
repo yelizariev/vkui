@@ -15,7 +15,7 @@ package ru.vkontakte.vkui.container {
 	 * ...
 	 * container.end(); //remove unused objects
 	 */
-	internal class List extends Sprite{
+	public class List extends Sprite{
 		private var _list: Array;
 		private var _listLen: int;
 		private var _curIndex: int;
