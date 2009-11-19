@@ -49,7 +49,6 @@ package ru.vkontakte.vkui.container {
 			//подправим координату y
 			var curY: Number = 0;
 			for (i = 0; i< _curIndex; i++){
-				trace("curY="+curY);
 				(_list[i] as DisplayObject).y = curY;
 				curY += (_list[i] as DisplayObject).height;
 				curY += _deltaY;
