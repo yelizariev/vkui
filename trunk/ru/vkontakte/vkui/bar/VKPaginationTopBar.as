@@ -38,6 +38,11 @@ package ru.vkontakte.vkui.bar {
 			_labelString += '</span>';
 			updateHTML()
 		}
+		public function removeAllLinks(): void{
+			_linksString = '';
+			_links.splice(0);
+			updateHTML();
+		}
 		public function addLink(label: String, onClick: Function): void{
 			var linkEvent: String = 'link_'+String(_curLinkID++);
 			var str: String = '';
